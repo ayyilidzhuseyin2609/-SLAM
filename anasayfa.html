@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ana Sayfa | Adalet ve Bilinç Platformu</title>
+  <style>
+    :root {
+      --bg: #0b3d2e;
+      --accent: #0f7a5f;
+      --text-dark: #072b22;
+      --light: #ffffff;
+      --shadow: 0 8px 20px rgba(0,0,0,0.15);
+      --sidebar-w: 280px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Inter", sans-serif; }
+
+    body {
+      background: linear-gradient(180deg, #e6f3ec, #f3f6f4);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+      z-index: 100;
+    }
+
+    .hamburger {
+      position: absolute;
+      left: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s ease;
+    }
+
+    .hamburger:hover { transform: scale(1.1); }
+
+    .lines {
+      position: relative;
+      width: 22px;
+      height: 14px;
+    }
+
+    .lines::before,
+    .lines::after,
+    .lines div {
+      content: "";
+      position: absolute;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--text-dark);
+      border-radius: 2px;
+      transition: all .3s ease;
+    }
+
+    .lines::before { top: 0; }
+    .lines div { top: 6px; }
+    .lines::after { bottom: 0; }
+
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--bg);
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0; left: calc(-1 * var(--sidebar-w));
+      width: var(--sidebar-w);
+      height: 100vh;
+      background: #fff;
+      box-shadow: 6px 0 24px rgba(0, 0, 0, 0.1);
+      padding: 80px 16px 16px;
+      transition: left .3s cubic-bezier(.2, .9, .2, 1);
+      z-index: 90;
+    }
+
+    .sidebar.open { left: 0; }
+
+    .sidebar h2 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(15,122,95,0.2);
+      padding-bottom: 6px;
+    }
+
+    .categories {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .categories li { margin: 8px 0; }
+
+    .categories a {
+      text-decoration: none;
+      color: var(--bg);
+      font-weight: 600;
+      padding: 10px 8px;
+      display: block;
+      border-radius: 8px;
+      transition: all .2s ease;
+    }
+
+    .categories a:hover {
+      background: rgba(15,122,95,0.08);
+      transform: translateX(3px);
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s ease;
+      z-index: 80;
+    }
+
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    main {
+      padding-top: 100px;
+      text-align: center;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      animation: fadeInUp 0.9s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      color: var(--bg);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #2d6b57;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: var(--light);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all .25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover {
+      background: #0d6651;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 13px;
+      color: #255d4a;
+      padding-bottom: 20px;
+    }
+
+    @media (max-width: 520px) {
+      header { height: 60px; }
+      .title { font-size: 17px; }
+      .hero h1 { font-size: 24px; }
+      .hero { padding: 28px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapat">
+      <span class="lines"><div></div></span>
+    </button>
+    <div class="title">Ana Sayfa</div>
+  </header>
+
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <h2>Kategoriler</h2>
+    <ul class="categories">
+      <li><a href="filistin.html">FİLİSTİN</a></li>
+      <li><a href="doguturkistan.html">DOĞU TÜRKİSTAN</a></li>
+      <li><a href="zulum.html">ZULÜM</a></li>
+      <li><a href="boykot.html">BOYKOT</a></li>
+    </ul>
+  </aside>
+
+  <div id="overlay" class="overlay"></div>
+
+  <main>
+    <section class="hero">
+      <h1>Adaletin Yanında, Zulmün Karşısında</h1>
+      <p>Bu platform, mazlum halkların sesi olmak, bilinç oluşturmak ve adaletin yanında durmak için kurulmuştur. Gerçeği savunmak, doğruyu göstermek ve insanları bilinçlendirmek bizim görevimizdir.</p>
+      <div class="buttons">
+        <a href="https://boykotdedektifi.org/" target="_blank" class="btn">🛑 Boykot Listesi</a>
+        <a href="#about" class="btn">📜 Hakkımızda</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Adalet Platformu | Tüm Hakları Saklıdır
+    </footer>
+  </main>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    hamburger.addEventListener('click', () => {
+      const open = sidebar.classList.toggle('open');
+      overlay.classList.toggle('show', open);
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>

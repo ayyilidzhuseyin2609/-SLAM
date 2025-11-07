@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zalime Yardım Etme! | Zulme Dur De</title>
+    <style>
+        /* Ana Değişkenler */
+        :root {
+            --blood-red: #8b0000;
+            --dark-red: #2d0000;
+            --light-red: #ff4444;
+            --gold: #ffd700;
+            --black-overlay: rgba(0,0,0,0.7);
+            --glass-effect: rgba(255,255,255,0.05);
+            --border-glow: 0 0 10px var(--blood-red);
+        }
+
+        /* Temel Stiller */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--dark-red), #000);
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Özel Scroll Bar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            background: var(--dark-red);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blood-red);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--light-red);
+        }
+
+        /* Header Animasyonları */
+        .header {
+            text-align: center;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            background: var(--black-overlay);
+            border-bottom: 2px solid var(--blood-red);
+            animation: headerPulse 4s infinite;
+        }
+
+        @keyframes headerPulse {
+            0% { box-shadow: 0 0 20px var(--blood-red); }
+            50% { box-shadow: 0 0 40px var(--blood-red); }
+            100% { box-shadow: 0 0 20px var(--blood-red); }
+        }
+
+        .header h1 {
+            font-size: 4em;
+            margin: 0;
+            color: var(--light-red);
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.5),
+                0 0 20px var(--blood-red);
+            animation: bloodDrip 2s infinite, textGlow 3s infinite;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px var(--blood-red); }
+            50% { text-shadow: 0 0 30px var(--light-red); }
+            100% { text-shadow: 0 0 10px var(--blood-red); }
+        }
+
+        /* Kan Damlama Efekti */
+        .blood-effect {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, var(--blood-red), transparent);
+            animation: bloodFlow 3s infinite;
+        }
+
+        .blood-drops {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .blood-drop {
+            position: absolute;
+            width: 2px;
+            background: var(--blood-red);
+            animation: dropFall linear infinite;
+        }
+
+        @keyframes dropFall {
+            from { transform: translateY(-100%); opacity: 1; }
+            to { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* İçerik Bölümleri */
+        .content-section {
+            background: var(--black-overlay);
+            margin: 20px;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid var(--blood-red);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        /* Zulüm Listesi */
+        .atrocity-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .atrocity-item {
+            background: rgba(139,0,0,0.3);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .atrocity-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+        }
+
+        .atrocity-item:hover::before {
+            transform: translateX(100%);
+            transition: transform 0.6s ease;
+        }
+
+        /* İstatistik Göstergeleri */
+        .stat-counter {
+            font-size: 2em;
+            color: var(--light-red);
+            text-align: center;
+            margin: 20px 0;
+            text-shadow: 0 0 10px var(--blood-red);
+            animation: numberPulse 2s infinite;
+        }
+
+        @keyframes numberPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Dua Bölümü */
+        .prayer-section {
+            text-align: center;
+            padding: 30px;
+            background: var(--black-overlay);
+            margin: 20px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prayer-text {
+            font-style: italic;
+            color: var(--gold);
+            margin: 15px 0;
+            font-size: 1.2em;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+            animation: prayerGlow 3s infinite;
+        }
+
+        @keyframes prayerGlow {
+            0% { text-shadow: 0 0 10px rgba(255,215,0,0.5); }
+            50% { text-shadow: 0 0 20px rgba(255,215,0,0.8); }
+            100% { text-shadow: 0 0 10px rgba(255,215,0,0.5); }
+        }
+
+        
+        /* Hadis ve Ayet Bölümü */
+        .quote-section {
+            background: var(--black-overlay);
+            padding: 30px;
+            margin: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .quote {
+            font-size: 1.2em;
+            color: var(--gold);
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .quote-source {
+            font-style: italic;
+            color: #aaa;
+            margin-top: 10px;
+        }
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .content-section {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .atrocity-list {
+                grid-template-columns: 1fr;
+            }
+
+            .boycott-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Bölümü -->
+    <div class="header">
+        <h1>ZALİME YARDIM ETME</h1>
+        <div class="blood-effect"></div>
+        <h2 style="color: #fff; margin-top: 20px;">ATEŞİ SANA DA DOKUNUR!</h2>
+        <div class="blood-drops"></div>
+    </div>
+
+    <!-- Filistin Bölümü -->
+    <div class="content-section">
+        <h2>🇵🇸 FİLİSTİN'DE YAŞANAN ZULÜMLER</h2>
+        <div class="stat-counter">
+            Şehit Sayısı: 25,000+
+        </div>
+        <div class="atrocity-list">
+            <div class="atrocity-item">
+                <h3>🏥 Hastane Saldırıları</h3>
+                <p>- Gazze'deki hastaneler bombalanıyor</p>
+                <p>- Yaralılara müdahale edilemiyor</p>
+                <p>- İlaç ve tıbbi malzeme girişi engelleniyor</p>
+                <p>- Sağlık personeli hedef alınıyor</p>
+                <p>- Ambulanslar bombalanıyor</p>
+            </div>
+            <div class="atrocity-item">
+                <h3>👶 Çocuklara Yapılan Zulüm</h3>
+                <p>- Binlerce çocuk şehit edildi</p>
+                <p>- Yaralı çocuklar tedavi edilemiyor</p>
+                <p>- Yetim kalan çocuklar açlıkla mücadele ediyor</p>
+                <p>- Okullar hedef alınıyor</p>
+                <p>- Psikolojik travmalar yaşanıyor</p>
+            </div>
+            <div class="atrocity-item">
+                <h3>🏠 Sivil Yerleşim Yerleri</h3>
+                <p>- Evler yıkılıyor</p>
+                <p>- Mahalleler harabeye çevriliyor</p>
+                <p>- İnsanlar evsiz kalıyor</p>
+                <p>- Altyapı sistemleri yok ediliyor</p>
+            </div>
+            <div class="atrocity-item">
+                <h3>🥖 İnsani Kriz</h3>
+                <p>- Gıda ve su krizi yaşanıyor</p>
+                <p>- Temel ihtiyaçlar karşılanamıyor</p>
+                <p>- Yardımlar engelleniyor</p>
+                <p>- İnsanlar açlıkla mücadele ediyor</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doğu Türkistan Bölümü -->
+    <div class="content-section">
+        <h2>🇹🇷 DOĞU TÜRKİSTAN'DA YAŞANAN ZULÜMLER</h2>
+        <div class="stat-counter">
+            Toplama Kamplarında Tutulan: 1,000,000+
+        </div>
+        <div class="atrocity-list">
+            <div class="atrocity-item">
+                <h3>🏢 Toplama Kampları</h3>
+                <p>- Milyonlarca Müslüman kamplarda tutuluyor</p>
+                <p>- İşkence ve kötü muamele yapılıyor</p>
+                <p>- Dini vecibeler yasaklanıyor</p>
+                <p>- İnsanlık dışı uygulamalar</p>
+                <p>- Zorla çalıştırma kampları</p>
+            </div>
+            <div class="atrocity-item">
+                <h3>👨‍👩‍👧‍👦 Aile Dramı</h3>
+                <p>- Aileler parçalanıyor</p>
+                <p>- Çocuklar ailelerinden koparılıyor</p>
+                <p>- Zorla kısırlaştırma yapılıyor</p>
+                <p>- Zorla evlilikler</p>
+                <p>- Kültürel asimilasyon</p>
+            </div>
+            <div class="atrocity-item">
+                <h3>🕌 Dini Baskılar</h3>
+                <p>- Camiler yıkılıyor</p>
+                <p>- İbadet yasaklanıyor</p>
+                <p>- Kuran-ı Kerim yasaklanıyor</p>
+                <p>- Dini eğitim engelleniyor</p>
+            </div>
+            <div class="atrocity-item">
+                <h3>🎭 Kültürel Soykırım</h3>
+                <p>- Ana dil yasaklanıyor</p>
+                <p>- Gelenekler yok ediliyor</p>
+                <p>- Tarihi eserler tahrip ediliyor</p>
+                <p>- Kimlik ve kültür siliniyor</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hadis ve Ayet Bölümü -->
+    <div class="quote-section">
+        <div class="quote">
+            "Kim bir zalime yardım ederse, Allah o zalimi ona musallat eder."
+            <div class="quote-source">Hadis-i Şerif</div>
+        </div>
+        <div class="quote">
+            "Zalimlere meyletmeyin, yoksa size ateş dokunur."
+            <div class="quote-source">Hud Suresi, 113. Ayet</div>
+        </div>
+    </div>
+
+    <!-- Yardım Bölümü -->
+    <div class="help-section">
+        <h2>🤲 NELER YAPABİLİRİZ?</h2>
+        <div class="atrocity-list">
+            <div class="atrocity-item">
+                <h3>📿 DUA</h3>
+                <p class="emphasis">"Zalimin zulmü varsa, mazlumun Allah'ı var!"</p>
+                <ul>
+                    <li>Her namazda dua edelim</li>
+                    <li>Kunut duaları okuyalım</li>
+                    <li>Gece namazlarında kalkıp dua edelim</li>
+                    <li>Toplu dualara katılalım</li>
+                </ul>
+            </div>
+            <div class="atrocity-item">
+               
+
+    <!-- Dua Bölümü -->
+    <div class="prayer-section">
+        <h2>🤲 DUALARIMIZ</h2>
+        <p class="prayer-text">"Allah'ım! Mazlum kardeşlerimize yardım et!"</p>
+        <p class="prayer-text">"Zalimlerin zulmünü kendi başlarına çevir!"</p>
+        <p class="prayer-text">"Ya Rabbi! Filistinli ve Doğu Türkistanlı kardeşlerimizi koru!"</p>
+        <p class="prayer-text">"Allah'ım! Zalimlere fırsat verme!"</p>
+    </div>
+
+    <script>
+        // Kan damlası efekti için JavaScript
+        function createBloodDrop() {
+            const drop = document.createElement('div');
+            drop.className = 'blood-drop';
+            drop.style.left = Math.random() * 100 + '%';
+            drop.style.height = Math.random() * 40 + 10 + 'px';
+            drop.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.querySelector('.blood-drops').appendChild(drop);
+            
+            // Damlayı animasyon bitiminde kaldır
+            drop.addEventListener('animationend', () => {
+                drop.remove();
+            });
+        }
+
+        // Her 200ms'de bir yeni damla oluştur
+        setInterval(createBloodDrop, 200);
+
+        // Sayfa yüklendiğinde animasyonları başlat
+        document.addEventListener('DOMContentLoaded', () => {
+            // İstatistik sayaçları için animasyon
+            const counters = document.querySelectorAll('.stat-counter');
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / 200;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+                updateCount();
+            });
+        });
+    </script>
+</body>
+</html>

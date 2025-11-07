@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filistin Devleti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0b3d2e, #1a5f48);
+            color: #fff;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
+            animation: rgbBorder 6s linear infinite;
+        }
+        .section {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(4px);
+            color: #fff;
+        }
+        h2 {
+            color: #ffd27a;
+            margin-top: 0;
+        }
+        p { margin: 8px 0; line-height:1.45; color: #f0f6f2; }
+        ul { margin: 8px 0 0 20px; color: #f0f6f2; }
+        ol { margin: 8px 0 0 20px; color: #f0f6f2; }
+        @keyframes rgbBorder {
+            0% { border-color: #ff0000; }
+            33% { border-color: #00ff00; }
+            66% { border-color: #0000ff; }
+            100% { border-color: #ff0000; }
+        }
+
+        /* Sayfanın en altında sabit Tarihçe butonu */
+        .footer {
+          position: fixed;
+          left: 50%;
+          bottom: 18px;
+          transform: translateX(-50%);
+          background: rgba(0,0,0,0.18);
+          padding: 10px 14px;
+          border-radius: 12px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+          z-index: 60;
+        }
+        .footer a {
+          color: #fff;
+          text-decoration: none;
+          font-weight: 700;
+          background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+          padding: 8px 12px;
+          border-radius: 8px;
+          border: 1px solid rgba(255,255,255,0.06);
+        }
+        .footer a:hover { transform: translateY(-3px); transition: .18s ease; box-shadow: 0 6px 16px rgba(15,122,95,0.12); }
+    </style>
+</head>
+<body>
+    <div class="header">FİLİSTİN DEVLETİ (KUDÜS)</div>
+
+    <div class="section">
+        <h2>GENEL BİLGİLER</h2>
+        <p>Başkent: Kudüs (De jure), Ramallah (De facto)</p>
+        <p>Nüfus: ~5.2 milyon (2021)</p>
+        <p>Resmî Dil: Arapça</p>
+    </div>
+
+    <!-- TARİHÇE bölümü burada kaldırıldı; detaylı tarih için alttaki butona basın -->
+
+    <div class="section">
+        <h2>GÜNCEL DURUM VE İNSANİ KRİZ</h2>
+        <p>Uluslararası kuruluşlar, medya ve insan hakları örgütlerinin raporlarına göre bölgede devam eden çatışmalar siviller üzerinde ağır insani sonuçlar doğuruyor. Aşağıdaki hususlar sıkça bildirilmektedir:</p>
+        <ul>
+            <li>Sivillerin yaşamını yitirmesi ve geniş çaplı can kayıpları.</li>
+            <li>Yerinden edilmeler, altyapı ve konutlarda geniş çaplı hasar.</li>
+            <li>Gazze'de uygulanan abluka ve hareket kısıtlamaları nedeniyle temel ihtiyaca yönelik malzeme ve insani yardımın erişiminde zorluklar.</li>
+            <li>Sağlık, su ve elektrik gibi hizmetlere erişimin kesintiye uğraması veya kısıtlanması.</li>
+            <li>Birleşmiş Milletler ve Kızılhaç gibi kuruluşların yardım konuşlandırma ve erişim sorunlarına dikkat çekmesi.</li>
+        </ul>
+        <p>Bu maddeler geniş çapta raporlanmış, farklı kaynaklarca teyit edilmeye çalışılmıştır; ayrıntılar ve sayısal veriler zamanla değişmektedir. Tarafsız ve güncel bilgi için BM ve büyük insan hakları örgütlerinin raporlarına bakılmalıdır.</p>
+    </div>
+
+    <div class="section">
+        <h2>NÜFUS VE TOPLUM</h2>
+        <p>- Din: %93 Müslüman, %6 Hristiyan (yaklaşık)</p>
+        <p>- Okuryazarlık ve sağlık hizmetleri ile ilgili gelişmeler ve zorluklar bölgeye göre değişir</p>
+    </div>
+
+    <div class="section">
+        <h2>KÜLTÜR</h2>
+        <p>- Filistin kültürü; dil, din, sanat ve tarih yoluyla güçlü bir bölgesel kimlik taşır.</p>
+        <p>- Önemli yerler: Mescid-i Aksa, Kudüs Eski Şehri, tarihi ve kültürel miras.</p>
+    </div>
+
+    <div class="section">
+        <h2>YÖNETİM</h2>
+        <p>- Filistin Kurtuluş Örgütü (FKÖ) ve Filistin Ulusal Yönetimi başlıca siyasi yapılardır.</p>
+        <p>- Filistin, uluslararası alanda çeşitli kuruluşlarda temsil edilmektedir.</p>
+    </div>
+
+    <!-- Sayfanın en altında sabit tarihçe linki -->
+    <div class="footer">
+      <a href="tarihce.html">Tarihçe →</a>
+    </div>
+</body>
+</html>

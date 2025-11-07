@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kayıt Ol</title>
+  <style>
+    :root{
+      --bg: rgba(4, 221, 51, 0.788);
+      --card-bg: #fff;
+      --accent: #0b7a3f;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .card{
+      width:360px;
+      max-width:92vw;
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:22px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      text-align:left;
+    }
+    h1{ margin:0 0 10px; font-size:20px; color:var(--accent); text-align:center;}
+    label{ display:block; font-size:13px; color:#333; margin:8px 0 6px; }
+    input{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #e6e6e6;
+      box-sizing:border-box;
+      font-size:14px;
+    }
+    .actions{ margin-top:16px; text-align:center; }
+    .btn{
+      background:var(--accent);
+      color:#fff;
+      padding:10px 16px;
+      border-radius:8px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      text-decoration:none;
+      display:inline-block;
+    }
+    .note{ font-size:13px; color:#2d6b57; text-align:center; margin-top:10px; }
+    @media (max-width:420px){
+      .card{ padding:16px; border-radius:10px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="signup-title">
+    <h1 id="signup-title">Kayıt Ol</h1>
+
+    <form action="index.html" method="get">
+      <label for="username">Kullanıcı Adı</label>
+      <input id="username" name="username" type="text" placeholder="Kullanıcı adınız" required />
+
+      <label for="email">E-posta</label>
+      <input id="email" name="email" type="email" placeholder="ornek@ornek.com" required />
+
+      <label for="password">Parola</label>
+      <input id="password" name="password" type="password" placeholder="Parolanız" required />
+
+      <div class="actions">
+        <button class="btn" type="submit">Kayıt Ol</button>
+      </div>
+    </form>
+
+    <p class="note">Kayıt sonrası giriş için ana sayfaya yönlendirileceksiniz.</p>
+  </main>
+</body>
+</html>

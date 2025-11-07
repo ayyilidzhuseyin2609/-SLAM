@@ -1,0 +1,55 @@
+/* Stat Grid Stilleri */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.stat-card {
+    background: rgba(139,0,0,0.2);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--blood-red);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(139,0,0,0.3);
+}
+
+.stat-label {
+    color: var(--gold);
+    margin-top: 0.5rem;
+    font-size: 1.1em;
+}
+
+/* Verse Section Stilleri */
+.verse-section {
+    background: var(--black-overlay);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--gold);
+}
+
+.verse-text {
+    font-size: 2.5em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-family: 'Traditional Arabic', serif;
+    direction: rtl;
+}
+
+.verse-meaning {
+    font-size: 1.5em;
+    color: #fff;
+    margin: 1rem 0;
+}
+
+.verse-source {
+    color: var(--light-red);
+    font-style: italic;
+}

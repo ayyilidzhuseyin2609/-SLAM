@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Giriş - Kayıt</title>
+  <style>
+    :root{
+      --dark-green: #0b3d2e;
+      --card-bg: #ffffff;
+      --accent: #0f7a5f;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      background: var(--dark-green);
+      color:#111;
+    }
+
+    /* Tam ekran konteyner; altta sabit kayıt butonuna yer bırak */
+    .center{
+      position:relative;
+      min-height:100vh;
+      display:block;
+      padding-bottom:140px; /* altta sabit kayıt kutusu için boşluk */
+      box-sizing:border-box;
+    }
+
+    /* Orta (giriş) kutusu: tam merkezde */
+    #login-card{
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      width:360px;
+      max-width:95vw;
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:22px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.25);
+      text-align:center;
+      z-index:10;
+    }
+
+    /* Kayıt kutusu: sabit, sayfanın en altında ortalanmış */
+    #signup-card{
+      position: fixed;
+      bottom:24px;
+      left:50%;
+      transform: translateX(-50%);
+      width:300px;
+      max-width:92vw;
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:14px 18px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.18);
+      text-align:center;
+      z-index:50;
+    }
+
+    h1{ margin:0 0 8px; font-size:20px; color:#072b22; }
+    p.lead{ margin:0 0 14px; color:#2d6b57; font-size:14px; }
+
+    .actions{ display:flex; gap:10px; justify-content:center; margin-top:8px;}
+    .btn{
+      background:var(--accent);
+      color:white;
+      border:none;
+      padding:10px 14px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      box-shadow:0 6px 14px rgba(15,122,95,0.28);
+      text-decoration:none;
+      display:inline-block;
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--accent);
+      border:2px solid rgba(15,122,95,0.12);
+      box-shadow:none;
+    }
+
+    input{ display:block; width:100%; padding:10px; border-radius:8px; border:1px solid #e6e6e6; box-sizing:border-box; margin-bottom:10px; }
+
+    @media (max-width:420px){
+      #login-card{ width:92vw; padding:16px; border-radius:10px; }
+      #signup-card{ width:88vw; padding:12px; bottom:12px; }
+      .center{ padding-bottom:96px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="center" role="main" aria-labelledby="page-title">
+    <!-- Giriş kutusu: tam merkezde -->
+    <div id="login-card" aria-label="Giriş Yap">
+      <h1 id="page-title">Giriş Yap</h1>
+      <p class="lead">Hesabınıza erişmek için giriş bilgilerinizi girin.</p>
+      <form action="anasayfa.html" method="get">
+        <input type="email" name="email" placeholder="E-posta" required />
+        <input type="password" name="password" placeholder="Parola" required />
+        <div class="actions">
+          <button class="btn" type="submit">Giriş Yap</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Kayıt kutusu: sadece "Kayıt Ol" yazısı ve buton, sayfanın en altında sabit -->
+    <div id="signup-card" aria-label="Kayıt Ol">
+      <h1>Kayıt Ol</h1>
+      <p class="lead" style="margin-bottom:8px;">Yeni hesap oluştur</p>
+      <a class="btn" href="kayitol.html">Kayıt Ol</a>
+    </div>
+  </div>
+</body>
+</html>
+// ...existing code...

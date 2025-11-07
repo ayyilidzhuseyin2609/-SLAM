@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ne Yapabilirim Deme | Boykot Yap</title>
+  <style>
+    :root {
+      --blood-red: #8b0000;
+      --dark-red: #1a0000;
+      --light-red: #ff4444;
+      --gold: #ffd700;
+      --black-overlay: rgba(0,0,0,0.7);
+      --glass: rgba(255,255,255,0.05);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--dark-red), #000);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .header {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--black-overlay);
+      border-bottom: 2px solid var(--blood-red);
+      box-shadow: 0 0 30px var(--blood-red);
+      position: relative;
+      overflow: hidden;
+      animation: headerPulse 4s infinite;
+    }
+
+    @keyframes headerPulse {
+      0% { box-shadow: 0 0 20px var(--blood-red); }
+      50% { box-shadow: 0 0 40px var(--blood-red); }
+      100% { box-shadow: 0 0 20px var(--blood-red); }
+    }
+
+    .header h1 {
+      font-size: 3em;
+      color: var(--light-red);
+      text-shadow: 0 0 30px var(--light-red);
+      animation: textGlow 3s infinite;
+    }
+
+    @keyframes textGlow {
+      0% { text-shadow: 0 0 10px var(--blood-red); }
+      50% { text-shadow: 0 0 30px var(--light-red); }
+      100% { text-shadow: 0 0 10px var(--blood-red); }
+    }
+
+    .content {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .section {
+      background: var(--black-overlay);
+      padding: 25px;
+      border-left: 4px solid var(--blood-red);
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 40px var(--blood-red);
+    }
+
+    .quote {
+      text-align: center;
+      font-size: 1.3em;
+      color: var(--gold);
+      background: var(--glass);
+      border-radius: 10px;
+      padding: 20px;
+      text-shadow: 0 0 10px rgba(255,215,0,0.4);
+      margin-bottom: 15px;
+    }
+
+    .quote-source {
+      color: #aaa;
+      font-style: italic;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .boycott-button {
+      background: var(--blood-red);
+      color: #fff;
+      padding: 18px 40px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 25px var(--blood-red);
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .boycott-button:hover {
+      background: var(--light-red);
+      transform: scale(1.05);
+      box-shadow: 0 0 40px var(--light-red);
+    }
+
+    @media (max-width: 768px) {
+      .header h1 { font-size: 2em; }
+      .content { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>NE YAPABİLİRİM DEME, BOYKOT YAP!</h1>
+  </div>
+
+  <div class="content">
+    <div class="section">
+      <div class="quote">
+        “Zalimlere meyletmeyin; yoksa size ateş dokunur.”
+        <div class="quote-source">– Hûd Suresi, 113. Ayet</div>
+      </div>
+      <div class="quote">
+        “Kim bir zalime yardım ederse, Allah o zalimi ona musallat eder.”
+        <div class="quote-source">– Hadis-i Şerif</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🩸 NEDEN BOYKOT?</h2>
+      <p>
+        Boykot, zalimin ekonomisini güçlendirmemek ve mazlumun yanında yer almak için atılan sessiz ama güçlü bir adımdır.  
+        Filistin'e değil, <strong>İsrail'e destek veren markaları</strong> boykot etmek; hem ahlaki hem de imani bir duruştur.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>⚠️ NE YAPABİLİRİM?</h2>
+      <ul>
+        <li>İsrail’i açıkça destekleyen markaları kullanma.</li>
+        <li>Yerli ve bağımsız üreticileri tercih et.</li>
+        <li>Çevreni bilinçlendir, paylaşım yap.</li>
+        <li>Ekonomik gücünü adaletin yanında kullan.</li>
+      </ul>
+    </div>
+
+    <div class="button-container">
+      <button class="boycott-button" onclick="window.open('https://boykotdedektifi.org/', '_blank')">
+        🧾 Boykot Listesi
+      </button>
+    </div>
+  </div>
+</body>
+</html>
